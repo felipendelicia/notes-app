@@ -1,11 +1,15 @@
 import express from 'express'
+import dotenv from 'dotenv'
 
 // Init app
 const app = express()
-const PORT = 3000
+const enviromentPath = "DEV" === process.env.NODE_ENV ? '.env.dev' : '.env'
 
 // Middlewares
 app.use(express.json())
+dotenv.config({
+    path: enviromentPath
+ })
 
 // Routes
 app.get('/ping', (req,res)=>{
@@ -14,6 +18,6 @@ app.get('/ping', (req,res)=>{
 })
 
 // Start server
-app.listen(PORT, ()=>{
-    console.log('Server running on port', PORT)
+app.listen(process.env.PORT, ()=>{
+    console.log('Server running on port', process.env.PORT)
 })
