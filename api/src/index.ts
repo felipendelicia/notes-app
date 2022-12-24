@@ -1,21 +1,20 @@
 import express from 'express'
-import conn from './database'
-import env from './config/enviroment_var'
+import morgan from 'morgan'
+import env from './config/env_vars'
 
 // Init app
 const app = express()
 
 // Middlewares
 app.use(express.json())
+app.use(morgan('dev'))
 
 // Routes
 app.get('/ping', async (req,res)=>{
-    const result = await conn.query('SELECT * FROM users')
-    console.log(result[0])
-    res.send('hola')
+    res.send('pong')
 })
 
 // Start server
 app.listen(env.PORT, ()=>{
-    console.log('Server running on port', env.PORT)
+    console.log('[SERVER]: Running on port', env.PORT)
 })

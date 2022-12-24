@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise'
-import env from './config/enviroment_var'
+import env from './config/env_vars'
 
 const conn = mysql.createPool({
     host: env.DB_HOST,
