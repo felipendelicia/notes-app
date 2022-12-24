@@ -1,23 +1,21 @@
 import express from 'express'
-import dotenv from 'dotenv'
+import conn from './database'
+import env from './config/enviroment_var'
 
 // Init app
 const app = express()
-const enviromentPath = "DEV" === process.env.NODE_ENV ? '.env.dev' : '.env'
 
 // Middlewares
 app.use(express.json())
-dotenv.config({
-    path: enviromentPath
- })
 
 // Routes
-app.get('/ping', (req,res)=>{
-    console.log('someone pingued here!')
-    res.send('pong')
+app.get('/ping', async (req,res)=>{
+    const result = await conn.query('SELECT * FROM users')
+    console.log(result[0])
+    res.send('hola')
 })
 
 // Start server
-app.listen(process.env.PORT, ()=>{
-    console.log('Server running on port', process.env.PORT)
+app.listen(env.PORT, ()=>{
+    console.log('Server running on port', env.PORT)
 })
