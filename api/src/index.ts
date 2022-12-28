@@ -1,6 +1,7 @@
-import express from 'express'
+import express, {Response, Request} from 'express'
 import morgan from 'morgan'
 import env from './config/env_vars'
+import {ensureToken} from './middlewares/ensureToken'
 
 // Init app
 const app = express()
@@ -10,8 +11,8 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 // Routes
-app.get('/ping', async (req,res)=>{
-    res.send('pong')
+app.get('/ping', ensureToken, (req:Request,res:Response)=>{
+    res.send('Hello')
 })
 
 // Start server
