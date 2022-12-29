@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 // Routes
-app.use(notesRoutes)
+app.use('/api/notes', notesRoutes)
 
 // Start server
 app.listen(env.PORT, ()=>{
