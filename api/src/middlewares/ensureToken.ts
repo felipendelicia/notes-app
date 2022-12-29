@@ -1,5 +1,4 @@
 import { Response, NextFunction } from "express";
-import { IRequestToken } from "../types";
 
 export const ensureToken = (req:any, res:Response, next:NextFunction) => {
     const bearerHeader = req.headers['authorization']
@@ -9,6 +8,6 @@ export const ensureToken = (req:any, res:Response, next:NextFunction) => {
         req.token = bearerToken
         next()
     } else {
-        res.send('no token')
+        res.sendStatus(403)
     }
 }

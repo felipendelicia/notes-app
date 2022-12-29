@@ -18,7 +18,7 @@ async function login(req: Request, res: Response) {
     res.send('password or username incorrect')
   }
   else {
-    const token = jwt.sign(user, env.JWT_SECRET as Secret)
+    const token = jwt.sign(user, env.JWT_SECRET as Secret, {expiresIn:'1h'})
     console.log(`${user.user} logged in!`)
     res.json({
         token
