@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
+import { IRequestToken } from "../types";
 
-export const ensureToken = (req:Request, res:Response, next:NextFunction) => {
+export const ensureToken = (req:any, res:Response, next:NextFunction) => {
     const bearerHeader = req.headers['authorization']
     if (bearerHeader && typeof bearerHeader !== undefined){
         const bearer = bearerHeader.split(' ')
@@ -8,6 +9,6 @@ export const ensureToken = (req:Request, res:Response, next:NextFunction) => {
         req.token = bearerToken
         next()
     } else {
-        res.send('no tenes token rey')
+        res.send('no token')
     }
 }
