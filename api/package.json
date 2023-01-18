@@ -1,7 +1,7 @@
 {
   "name": "api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "api who give the notes",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=DEV ts-node-dev src/index.ts",
