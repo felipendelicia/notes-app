@@ -1,10 +1,24 @@
 .loginpopup-component {
+    color: var(--black-color);
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
 }
 
-.login-popup {
+.loginpopup {
+    background-color: var(--white-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    gap: 30px;
+}
 
+.login-credentials{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

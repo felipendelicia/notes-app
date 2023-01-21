@@ -3,3 +3,8 @@ export interface IInputProps {
     placeholder: string | undefined,
     label: string | undefined
 }
+
+export interface IButtonProps {
+    children:string,
+    handleClick: () => void
+}
