@@ -1,3 +1,5 @@
+import { IUser } from "."
+
 export interface IInputProps {
     type: string,
     placeholder: string | undefined,
@@ -7,4 +9,8 @@ export interface IInputProps {
 export interface IButtonProps {
     children:string,
     handleClick: () => void
+}
+
+export interface IUserViewProps {
+    user: IUser | undefined
 }
