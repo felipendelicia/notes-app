@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 import UserView from "./pages/UserView";
 import { IUser } from "./types";
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />}/>
           <Route path="/notes" element={<UserView user={user} />}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Router>
     </div>

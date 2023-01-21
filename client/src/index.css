@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
 
 .App {
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
     font-family: 'Ubuntu', sans-serif;
     width: 100vw;
     height: 100vh;

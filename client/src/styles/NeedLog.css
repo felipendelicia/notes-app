@@ -1,0 +1,18 @@
+.needlog-page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.needlog-modal{
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    gap: 10px;
+}
