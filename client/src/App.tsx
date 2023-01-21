@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={<Login setUser={user => setUser(user)}/>}/>
           <Route path="/notes" element={<UserView user={user} />}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>

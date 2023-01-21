@@ -1,3 +1,7 @@
 export interface IUser {
-    token:string
+    id: number,
+    creation_date: Date,
+    user: string,
+    password: string
+    token: string
 }
