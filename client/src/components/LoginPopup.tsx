@@ -15,6 +15,7 @@ export default function LoginPopup(props: ILoginProps) {
     const credentials = { user: usernameRef.current!.value, password: passwordRef.current!.value }
     const rawUser: IUser = await loginService(credentials)
     props.setUser(rawUser)
+    console.log('Logued in')
   }
 
   return (
