@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Start from "./pages/Start";
 import { IUser } from "./types";
@@ -12,8 +13,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />}/>
-          <Route path="/" element={<Start />} />
+          <Route path="/notes" element={<Start />}/>
         </Routes>
       </Router>
     </div>
