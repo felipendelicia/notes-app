@@ -15,14 +15,14 @@ async function login(req: Request, res: Response) {
   const user = raw_user[0][0]
 
   if (user === undefined || user.password !== credentials.password) {
-    res.send('password or username incorrect')
+    res.json({ payload: "password or username incorrect", state: false })
   }
   else {
     const token = jwt.sign(user, env.JWT_SECRET as Secret, { expiresIn: '1h' })
     console.log(`${user.user} logged in!`)
     user.token = token
     res.json({
-      user
+      payload:user, state:true
     })
   }
 

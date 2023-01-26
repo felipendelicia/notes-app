@@ -22,3 +22,7 @@
     flex-direction: column;
     gap: 15px;
 }
+
+.message-paragraph{
+    color: var(--main-color);
+}

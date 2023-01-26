@@ -1,3 +1,5 @@
+import config from "../config/config"
+
 export default async function loginService(credentials: { user: string, password: string }) {
     const options = {
         method: 'POST',
@@ -8,7 +10,7 @@ export default async function loginService(credentials: { user: string, password
     }
 
     try {
-        const response = await fetch('http://localhost:4000/api/auth', options)
+        const response = await fetch(config.URL + '/api/auth', options)
         const json = await response.json()
         return json
     } catch (error) {

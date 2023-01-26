@@ -1,21 +1,22 @@
 import '../styles/LoginPopup.css'
 import { ILoginProps } from '../types/props'
-import { createRef } from 'react'
+import { createRef, useState } from 'react'
 import loginService from '../services/login'
 import Button from './Button'
 import Input from './Input'
-import { IUser } from '../types'
 
 export default function LoginPopup(props: ILoginProps) {
 
   const usernameRef = createRef<HTMLInputElement>()
   const passwordRef = createRef<HTMLInputElement>()
 
+  const [message, setMessage] = useState('')
+
   const login = async () => {
     const credentials = { user: usernameRef.current!.value, password: passwordRef.current!.value }
-    const rawUser: IUser = await loginService(credentials)
-    props.setUser(rawUser)
-    console.log('Logued in')
+    const rawUser: { payload: any, state: boolean } = await loginService(credentials)
+    console.log(rawUser)
+    rawUser.state ? props.setUser(rawUser.payload) : setMessage(rawUser.payload)
   }
 
   return (
@@ -27,6 +28,9 @@ export default function LoginPopup(props: ILoginProps) {
           <Input type='password' innerRef={passwordRef} placeholder='Enter your password' label='Password' />
         </div>
         <Button handleClick={() => login()}>Login</Button>
+
+        <p className='message-paragraph'>{message}</p>
+
       </div>
       <div className="login-image">
       </div>

@@ -5,3 +5,8 @@ export interface IUser {
     password: string
     token: string
 }
+
+export interface IAuth200 {
+    state: boolean,
+    user: IUser
+}
